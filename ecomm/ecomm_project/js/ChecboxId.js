@@ -5,33 +5,19 @@ var Carts=[];
 var selectedCart;
 
     console.log("Javascript Ready");
-    $('#submitCart').click(function(){ 
-
-		var mydata = table.$('input').serialize();
-		alert(mydata);
-		var myURL = encodeURI("BodyAddToCart.php?key="+mydata);
-		$.ajax({
-				type:"GET",
-				url:myURL,
-				success:function(response)
-				{
-				
-				$("#cartdisp").html(response);
-
-				}
-				
-		});
+    $('#submitCart').click(function(){
 		
-		//console.log(url);
-       // window.location=url;
+       /*  $(".items:checked").each(function() {
+         
+		    var  sThisVal = (this.checked ? $(this).val() : "");
+		   Carts.push(sThisVal);
+        }); */
+		
+		
+		var data = table.$('input').serialize();
+		var url = encodeURI("AddToCartPageIncluded.php?key="+data);
+		console.log(url);
+        window.location=url;
     });
 	 
-	   $(function () { $('#myCart').modal('hide')});
-
-
-  /* $(function () { $('#myCart').on('hide.bs.modal', function () {
-      alert('Hey, I heard you like modals...');})
-   });*/
 });
-
- 
